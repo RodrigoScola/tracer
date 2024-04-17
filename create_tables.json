@@ -1,1 +1,2644 @@
-{"name":"tracer","tables":[{"name":"author","columns":[{"name":"id","type":"int","tableName":"author","IsPrimary":true},{"name":"name","type":"varchar(100)","tableName":"author","IsPrimary":false},{"name":"lastName","type":"varchar(100)","tableName":"author","IsPrimary":false},{"name":"age","type":"int","tableName":"author","IsPrimary":false}]},{"name":"category","columns":[{"name":"id","type":"int","tableName":"category","IsPrimary":true},{"name":"name","type":"varchar(100)","tableName":"category","IsPrimary":false}]},{"name":"genre","columns":[{"name":"id","type":"int","tableName":"genre","IsPrimary":true},{"name":"name","type":"varchar(100)","tableName":"genre","IsPrimary":false}]},{"name":"author_specification","columns":[{"name":"cityId","type":"int","tableName":"author_specification","IsPrimary":true},{"name":"state","type":"int","tableName":"author_specification","IsPrimary":false},{"name":"authorId","type":"int","tableName":"author_specification","IsPrimary":false,"referencedTable":"author","referencedColumn":"id"}]},{"name":"book","columns":[{"name":"id","type":"int","tableName":"book","IsPrimary":true},{"name":"name","type":"varchar(100)","tableName":"book","IsPrimary":false},{"name":"color","type":"varchar(7)","tableName":"book","IsPrimary":false},{"name":"categoryId","type":"int","tableName":"book","IsPrimary":false,"referencedTable":"category","referencedColumn":"id"},{"name":"authorId","type":"int","tableName":"book","IsPrimary":false,"referencedTable":"author","referencedColumn":"id"},{"name":"genreId","type":"int","tableName":"book","IsPrimary":false,"referencedTable":"genre","referencedColumn":"id"}]},{"name":"vtex_sku_price","columns":[{"name":"id","type":"int","tableName":"vtex_sku_price","IsPrimary":true},{"name":"listPrice","type":"bigint","tableName":"vtex_sku_price","IsPrimary":false},{"name":"skuId","type":"int","tableName":"vtex_sku_price","IsPrimary":false},{"name":"previousId","type":"int","tableName":"vtex_sku_price","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"vtex_sku_price","IsPrimary":false},{"name":"sellingPrice","type":"int","tableName":"vtex_sku_price","IsPrimary":false},{"name":"paymentSystem","type":"int","tableName":"vtex_sku_price","IsPrimary":false},{"name":"paymentSystemName","type":"varchar(50)","tableName":"vtex_sku_price","IsPrimary":false},{"name":"previousSkuId","type":"int","tableName":"vtex_sku_price","IsPrimary":false}]},{"name":"vtex_sku_inventory","columns":[{"name":"skuId","type":"int","tableName":"vtex_sku_inventory","IsPrimary":false},{"name":"id","type":"varchar(100)","tableName":"vtex_sku_inventory","IsPrimary":true},{"name":"warehouseId","type":"varchar(100)","tableName":"vtex_sku_inventory","IsPrimary":false},{"name":"totalQuantity","type":"int","tableName":"vtex_sku_inventory","IsPrimary":false},{"name":"reservedQuantity","type":"int","tableName":"vtex_sku_inventory","IsPrimary":false},{"name":"availableQuantity","type":"int","tableName":"vtex_sku_inventory","IsPrimary":false},{"name":"hasUnlimitedQuantity","type":"tinyint(1)","tableName":"vtex_sku_inventory","IsPrimary":false},{"name":"isUnlimited","type":"tinyint(1)","tableName":"vtex_sku_inventory","IsPrimary":false},{"name":"timeToRefill","type":"int","tableName":"vtex_sku_inventory","IsPrimary":false},{"name":"dateOfSupplyUtc","type":"timestamp","tableName":"vtex_sku_inventory","IsPrimary":false},{"name":"supplyLotId","type":"varchar(100)","tableName":"vtex_sku_inventory","IsPrimary":false},{"name":"keepSellingAfterExpiration","type":"tinyint(1)","tableName":"vtex_sku_inventory","IsPrimary":false},{"name":"transfer","type":"text","tableName":"vtex_sku_inventory","IsPrimary":false},{"name":"leadTime","type":"text","tableName":"vtex_sku_inventory","IsPrimary":false},{"name":"previousWarehouseId","type":"varchar(100)","tableName":"vtex_sku_inventory","IsPrimary":false},{"name":"previousSkuId","type":"int","tableName":"vtex_sku_inventory","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"vtex_sku_inventory","IsPrimary":false},{"name":"status","type":"int","tableName":"vtex_sku_inventory","IsPrimary":false}]},{"name":"vtex_sku_file","columns":[{"name":"id","type":"int","tableName":"vtex_sku_file","IsPrimary":true},{"name":"marketplaceId","type":"varchar(50)","tableName":"vtex_sku_file","IsPrimary":false},{"name":"previousId","type":"int","tableName":"vtex_sku_file","IsPrimary":false},{"name":"skuId","type":"int","tableName":"vtex_sku_file","IsPrimary":false},{"name":"previousSkuId","type":"int","tableName":"vtex_sku_file","IsPrimary":false},{"name":"archiveId","type":"bigint","tableName":"vtex_sku_file","IsPrimary":false},{"name":"url","type":"text","tableName":"vtex_sku_file","IsPrimary":false},{"name":"name","type":"text","tableName":"vtex_sku_file","IsPrimary":false},{"name":"isMain","type":"int","tableName":"vtex_sku_file","IsPrimary":false},{"name":"label","type":"text","tableName":"vtex_sku_file","IsPrimary":false}]},{"name":"vtex_sku_attachment","columns":[{"name":"id","type":"int","tableName":"vtex_sku_attachment","IsPrimary":true},{"name":"previousId","type":"int","tableName":"vtex_sku_attachment","IsPrimary":false},{"name":"previousSkuId","type":"int","tableName":"vtex_sku_attachment","IsPrimary":false},{"name":"attachmentId","type":"int","tableName":"vtex_sku_attachment","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"vtex_sku_attachment","IsPrimary":false},{"name":"skuId","type":"int","tableName":"vtex_sku_attachment","IsPrimary":false}]},{"name":"vtex_sku","columns":[{"name":"id","type":"int","tableName":"vtex_sku","IsPrimary":true},{"name":"previousId","type":"int","tableName":"vtex_sku","IsPrimary":false},{"name":"previousProductId","type":"int","tableName":"vtex_sku","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"vtex_sku","IsPrimary":false},{"name":"isPersisted","type":"tinyint(1)","tableName":"vtex_sku","IsPrimary":false},{"name":"status","type":"int","tableName":"vtex_sku","IsPrimary":false},{"name":"productId","type":"int","tableName":"vtex_sku","IsPrimary":false},{"name":"activateIfPossible","type":"tinyint(1)","tableName":"vtex_sku","IsPrimary":false},{"name":"name","type":"text","tableName":"vtex_sku","IsPrimary":false},{"name":"refId","type":"varchar(50)","tableName":"vtex_sku","IsPrimary":false},{"name":"packagedHeight","type":"int","tableName":"vtex_sku","IsPrimary":false},{"name":"packagedLength","type":"int","tableName":"vtex_sku","IsPrimary":false},{"name":"packagedWidth","type":"int","tableName":"vtex_sku","IsPrimary":false},{"name":"packagedWeightKg","type":"int","tableName":"vtex_sku","IsPrimary":false},{"name":"height","type":"int","tableName":"vtex_sku","IsPrimary":false},{"name":"length","type":"int","tableName":"vtex_sku","IsPrimary":false},{"name":"width","type":"int","tableName":"vtex_sku","IsPrimary":false},{"name":"weightKg","type":"int","tableName":"vtex_sku","IsPrimary":false},{"name":"cubicWeight","type":"int","tableName":"vtex_sku","IsPrimary":false},{"name":"isKit","type":"tinyint(1)","tableName":"vtex_sku","IsPrimary":false},{"name":"creationDate","type":"timestamp","tableName":"vtex_sku","IsPrimary":false},{"name":"rewardValue","type":"int","tableName":"vtex_sku","IsPrimary":false},{"name":"manufacturerCode","type":"varchar(50)","tableName":"vtex_sku","IsPrimary":false},{"name":"commercialConditionId","type":"int","tableName":"vtex_sku","IsPrimary":false},{"name":"measurementUnit","type":"varchar(10)","tableName":"vtex_sku","IsPrimary":false},{"name":"unitMultiplier","type":"int","tableName":"vtex_sku","IsPrimary":false},{"name":"modalType","type":"int","tableName":"vtex_sku","IsPrimary":false},{"name":"kitItensSellApart","type":"tinyint(1)","tableName":"vtex_sku","IsPrimary":false},{"name":"isActive","type":"tinyint(1)","tableName":"vtex_sku","IsPrimary":false},{"name":"videos","type":"json","tableName":"vtex_sku","IsPrimary":false}]},{"name":"vtex_products","columns":[{"name":"id","type":"int","tableName":"vtex_products","IsPrimary":true},{"name":"previousId","type":"int","tableName":"vtex_products","IsPrimary":false},{"name":"name","type":"varchar(200)","tableName":"vtex_products","IsPrimary":false},{"name":"departmentId","type":"int","tableName":"vtex_products","IsPrimary":false},{"name":"categoryId","type":"int","tableName":"vtex_products","IsPrimary":false},{"name":"previousCategoryId","type":"int","tableName":"vtex_products","IsPrimary":false},{"name":"previousBrandId","type":"int","tableName":"vtex_products","IsPrimary":false},{"name":"brandId","type":"int","tableName":"vtex_products","IsPrimary":false},{"name":"linkId","type":"text","tableName":"vtex_products","IsPrimary":false},{"name":"refId","type":"varchar(200)","tableName":"vtex_products","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"vtex_products","IsPrimary":false},{"name":"isVisible","type":"tinyint(1)","tableName":"vtex_products","IsPrimary":false},{"name":"description","type":"text","tableName":"vtex_products","IsPrimary":false},{"name":"descriptionShort","type":"text","tableName":"vtex_products","IsPrimary":false},{"name":"releaseDate","type":"timestamp","tableName":"vtex_products","IsPrimary":false},{"name":"keyWords","type":"varchar(200)","tableName":"vtex_products","IsPrimary":false},{"name":"title","type":"varchar(200)","tableName":"vtex_products","IsPrimary":false},{"name":"taxCode","type":"varchar(200)","tableName":"vtex_products","IsPrimary":false},{"name":"metaTagDescription","type":"text","tableName":"vtex_products","IsPrimary":false},{"name":"supplierId","type":"varchar(200)","tableName":"vtex_products","IsPrimary":false},{"name":"showWithoutStock","type":"tinyint(1)","tableName":"vtex_products","IsPrimary":false},{"name":"adWordsRemarketingCode","type":"varchar(200)","tableName":"vtex_products","IsPrimary":false},{"name":"lomadeeCampaignCode","type":"varchar(200)","tableName":"vtex_products","IsPrimary":false},{"name":"status","type":"int","tableName":"vtex_products","IsPrimary":false},{"name":"isActive","type":"tinyint(1)","tableName":"vtex_products","IsPrimary":false}]},{"name":"sku_specification","columns":[{"name":"id","type":"int","tableName":"sku_specification","IsPrimary":true},{"name":"previousId","type":"int","tableName":"sku_specification","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"sku_specification","IsPrimary":false},{"name":"skuId","type":"int","tableName":"sku_specification","IsPrimary":false},{"name":"fieldId","type":"int","tableName":"sku_specification","IsPrimary":false},{"name":"fieldValueId","type":"int","tableName":"sku_specification","IsPrimary":false},{"name":"status","type":"int","tableName":"sku_specification","IsPrimary":false},{"name":"text","type":"text","tableName":"sku_specification","IsPrimary":false}]},{"name":"sku_sellers","columns":[{"name":"id","type":"int","tableName":"sku_sellers","IsPrimary":true},{"name":"previousId","type":"int","tableName":"sku_sellers","IsPrimary":false},{"name":"previousSellerId","type":"text","tableName":"sku_sellers","IsPrimary":false},{"name":"sellerId","type":"int","tableName":"sku_sellers","IsPrimary":false},{"name":"skuId","type":"int","tableName":"sku_sellers","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"sku_sellers","IsPrimary":false},{"name":"previousSkuId","type":"int","tableName":"sku_sellers","IsPrimary":false},{"name":"isActive","type":"tinyint(1)","tableName":"sku_sellers","IsPrimary":false},{"name":"isRemoved","type":"tinyint(1)","tableName":"sku_sellers","IsPrimary":false}]},{"name":"sku_kit","columns":[{"name":"id","type":"int","tableName":"sku_kit","IsPrimary":true},{"name":"previousId","type":"int","tableName":"sku_kit","IsPrimary":false},{"name":"skuId","type":"int","tableName":"sku_kit","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"sku_kit","IsPrimary":false},{"name":"skuParentId","type":"int","tableName":"sku_kit","IsPrimary":false},{"name":"quantity","type":"int","tableName":"sku_kit","IsPrimary":false},{"name":"unitPrice","type":"int","tableName":"sku_kit","IsPrimary":false}]},{"name":"sku_inventory","columns":[{"name":"skuId","type":"int","tableName":"sku_inventory","IsPrimary":false},{"name":"totalQuantity","type":"int","tableName":"sku_inventory","IsPrimary":false},{"name":"reservedQuantity","type":"int","tableName":"sku_inventory","IsPrimary":false},{"name":"availableQuantity","type":"int","tableName":"sku_inventory","IsPrimary":false},{"name":"hasUnlimitedQuantity","type":"tinyint(1)","tableName":"sku_inventory","IsPrimary":false},{"name":"isUnlimited","type":"tinyint(1)","tableName":"sku_inventory","IsPrimary":false},{"name":"previousSkuId","type":"int","tableName":"sku_inventory","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"sku_inventory","IsPrimary":false},{"name":"sellerId","type":"int","tableName":"sku_inventory","IsPrimary":false},{"name":"previousSellerId","type":"text","tableName":"sku_inventory","IsPrimary":false},{"name":"status","type":"int","tableName":"sku_inventory","IsPrimary":false}]},{"name":"sellers","columns":[{"name":"id","type":"int","tableName":"sellers","IsPrimary":true},{"name":"urlLogo","type":"text","tableName":"sellers","IsPrimary":false},{"name":"name","type":"text","tableName":"sellers","IsPrimary":false},{"name":"previousId","type":"text","tableName":"sellers","IsPrimary":false},{"name":"email","type":"text","tableName":"sellers","IsPrimary":false},{"name":"description","type":"text","tableName":"sellers","IsPrimary":false},{"name":"exchangeReturnPolicy","type":"text","tableName":"sellers","IsPrimary":false},{"name":"deliveryPolicy","type":"text","tableName":"sellers","IsPrimary":false},{"name":"CNPJ","type":"varchar(15)","tableName":"sellers","IsPrimary":false},{"name":"CSCIdentification","type":"varchar(200)","tableName":"sellers","IsPrimary":false},{"name":"archiveId","type":"int","tableName":"sellers","IsPrimary":false},{"name":"productCommissionPercentage","type":"int","tableName":"sellers","IsPrimary":false},{"name":"freightCommissionPercentage","type":"int","tableName":"sellers","IsPrimary":false},{"name":"categoryCommissionPercentage","type":"text","tableName":"sellers","IsPrimary":false},{"name":"fulfillmentEndpoint","type":"text","tableName":"sellers","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"sellers","IsPrimary":false},{"name":"catalogSystemEndpoint","type":"text","tableName":"sellers","IsPrimary":false},{"name":"status","type":"int","tableName":"sellers","IsPrimary":false},{"name":"isBetterScope","type":"tinyint(1)","tableName":"sellers","IsPrimary":false},{"name":"merchantName","type":"text","tableName":"sellers","IsPrimary":false},{"name":"userName","type":"text","tableName":"sellers","IsPrimary":false},{"name":"useHybridPaymentOptions","type":"tinyint(1)","tableName":"sellers","IsPrimary":false},{"name":"fulfillmentSellerId","type":"varchar(150)","tableName":"sellers","IsPrimary":false},{"name":"sellerType","type":"int","tableName":"sellers","IsPrimary":false},{"name":"trustPolicy","type":"text","tableName":"sellers","IsPrimary":false},{"name":"groups","type":"json","tableName":"sellers","IsPrimary":false},{"name":"isActive","type":"tinyint(1)","tableName":"sellers","IsPrimary":false},{"name":"customerId","type":"varchar(50)","tableName":"sellers","IsPrimary":false}]},{"name":"roles","columns":[{"name":"id","type":"int","tableName":"roles","IsPrimary":true},{"name":"marketplaceId","type":"text","tableName":"roles","IsPrimary":false},{"name":"name","type":"varchar(50)","tableName":"roles","IsPrimary":false},{"name":"status","type":"int","tableName":"roles","IsPrimary":false},{"name":"permissions","type":"json","tableName":"roles","IsPrimary":false}]},{"name":"products_specification","columns":[{"name":"id","type":"int","tableName":"products_specification","IsPrimary":true},{"name":"productId","type":"int","tableName":"products_specification","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"products_specification","IsPrimary":false},{"name":"previousId","type":"int","tableName":"products_specification","IsPrimary":false},{"name":"fieldId","type":"int","tableName":"products_specification","IsPrimary":false},{"name":"fieldValueId","type":"int","tableName":"products_specification","IsPrimary":false},{"name":"text","type":"text","tableName":"products_specification","IsPrimary":false},{"name":"status","type":"int","tableName":"products_specification","IsPrimary":false}]},{"name":"algorithm_runs","columns":[{"name":"id","type":"int","tableName":"algorithm_runs","IsPrimary":true},{"name":"endedAt","type":"timestamp","tableName":"algorithm_runs","IsPrimary":false},{"name":"startedAt","type":"timestamp","tableName":"algorithm_runs","IsPrimary":false},{"name":"itemsProcessed","type":"int","tableName":"algorithm_runs","IsPrimary":false},{"name":"memoryUsed","type":"json","tableName":"algorithm_runs","IsPrimary":false}]},{"name":"attachments","columns":[{"name":"id","type":"int","tableName":"attachments","IsPrimary":true},{"name":"status","type":"int","tableName":"attachments","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"attachments","IsPrimary":false},{"name":"previousId","type":"int","tableName":"attachments","IsPrimary":false},{"name":"name","type":"text","tableName":"attachments","IsPrimary":false},{"name":"isRequired","type":"tinyint(1)","tableName":"attachments","IsPrimary":false},{"name":"domains","type":"json","tableName":"attachments","IsPrimary":false}]},{"name":"brands","columns":[{"name":"id","type":"int","tableName":"brands","IsPrimary":true},{"name":"name","type":"text","tableName":"brands","IsPrimary":false},{"name":"status","type":"int","tableName":"brands","IsPrimary":false},{"name":"title","type":"text","tableName":"brands","IsPrimary":false},{"name":"metaTagDescription","type":"text","tableName":"brands","IsPrimary":false},{"name":"previousId","type":"int","tableName":"brands","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"brands","IsPrimary":false},{"name":"imageUrl","type":"text","tableName":"brands","IsPrimary":false}]},{"name":"campaigns","columns":[{"name":"id","type":"int","tableName":"campaigns","IsPrimary":true},{"name":"name","type":"varchar(50)","tableName":"campaigns","IsPrimary":false},{"name":"startAt","type":"timestamp","tableName":"campaigns","IsPrimary":false},{"name":"createdAt","type":"timestamp","tableName":"campaigns","IsPrimary":false},{"name":"endAt","type":"timestamp","tableName":"campaigns","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"campaigns","IsPrimary":false},{"name":"status","type":"int","tableName":"campaigns","IsPrimary":false},{"name":"isActive","type":"tinyint(1)","tableName":"campaigns","IsPrimary":false},{"name":"sellerId","type":"text","tableName":"campaigns","IsPrimary":false},{"name":"type","type":"int","tableName":"campaigns","IsPrimary":false},{"name":"placement","type":"int","tableName":"campaigns","IsPrimary":false}]},{"name":"categories","columns":[{"name":"id","type":"int","tableName":"categories","IsPrimary":true},{"name":"name","type":"text","tableName":"categories","IsPrimary":false},{"name":"title","type":"text","tableName":"categories","IsPrimary":false},{"name":"description","type":"text","tableName":"categories","IsPrimary":false},{"name":"keywords","type":"text","tableName":"categories","IsPrimary":false},{"name":"status","type":"int","tableName":"categories","IsPrimary":false},{"name":"lomadeeCampaignCode","type":"text","tableName":"categories","IsPrimary":false},{"name":"adWordsRemarketingCode","type":"text","tableName":"categories","IsPrimary":false},{"name":"showInStoreFront","type":"tinyint(1)","tableName":"categories","IsPrimary":false},{"name":"showBrandFilter","type":"tinyint(1)","tableName":"categories","IsPrimary":false},{"name":"previousId","type":"int","tableName":"categories","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"categories","IsPrimary":false},{"name":"activeStoreFrontLink","type":"tinyint(1)","tableName":"categories","IsPrimary":false},{"name":"globalCategoryId","type":"int","tableName":"categories","IsPrimary":false},{"name":"stockKeepingUnitSelectionMode","type":"text","tableName":"categories","IsPrimary":false},{"name":"score","type":"int","tableName":"categories","IsPrimary":false},{"name":"linkId","type":"text","tableName":"categories","IsPrimary":false},{"name":"hasChildren","type":"tinyint(1)","tableName":"categories","IsPrimary":false},{"name":"url","type":"text","tableName":"categories","IsPrimary":false},{"name":"metaTagDescription","type":"text","tableName":"categories","IsPrimary":false},{"name":"parent","type":"int","tableName":"categories","IsPrimary":false},{"name":"previousParentId","type":"int","tableName":"categories","IsPrimary":false}]},{"name":"interaction_history","columns":[{"name":"adId","type":"int","tableName":"interaction_history","IsPrimary":false},{"name":"createdAt","type":"timestamp","tableName":"interaction_history","IsPrimary":false},{"name":"metadata","type":"json","tableName":"interaction_history","IsPrimary":false},{"name":"type","type":"varchar(50)","tableName":"interaction_history","IsPrimary":false},{"name":"count","type":"bigint","tableName":"interaction_history","IsPrimary":false},{"name":"origin","type":"varchar(50)","tableName":"interaction_history","IsPrimary":false},{"name":"status","type":"int","tableName":"interaction_history","IsPrimary":false}]},{"name":"logging","columns":[{"name":"createdAt","type":"timestamp","tableName":"logging","IsPrimary":false},{"name":"value","type":"json","tableName":"logging","IsPrimary":false},{"name":"name","type":"varchar(150)","tableName":"logging","IsPrimary":false}]},{"name":"platform","columns":[{"name":"id","type":"int","tableName":"platform","IsPrimary":true},{"name":"name","type":"varchar(50)","tableName":"platform","IsPrimary":false}]},{"name":"marketplaces","columns":[{"name":"id","type":"varchar(50)","tableName":"marketplaces","IsPrimary":true},{"name":"name","type":"varchar(50)","tableName":"marketplaces","IsPrimary":false},{"name":"status","type":"int","tableName":"marketplaces","IsPrimary":false},{"name":"platformId","type":"int","tableName":"marketplaces","IsPrimary":false},{"name":"accountId","type":"varchar(50)","tableName":"marketplaces","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"marketplaces","IsPrimary":false}]},{"name":"sku_price","columns":[{"name":"id","type":"int","tableName":"sku_price","IsPrimary":true},{"name":"listPrice","type":"bigint","tableName":"sku_price","IsPrimary":false},{"name":"skuId","type":"int","tableName":"sku_price","IsPrimary":false,"referencedTable":"sku","referencedColumn":"id"},{"name":"previousId","type":"int","tableName":"sku_price","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"sku_price","IsPrimary":false},{"name":"sellingPrice","type":"int","tableName":"sku_price","IsPrimary":false},{"name":"paymentSystem","type":"int","tableName":"sku_price","IsPrimary":false},{"name":"paymentSystemName","type":"varchar(50)","tableName":"sku_price","IsPrimary":false},{"name":"sellerId","type":"int","tableName":"sku_price","IsPrimary":false},{"name":"previousSellerId","type":"text","tableName":"sku_price","IsPrimary":false},{"name":"previousSkuId","type":"int","tableName":"sku_price","IsPrimary":false}]},{"name":"sku_file","columns":[{"name":"id","type":"int","tableName":"sku_file","IsPrimary":true},{"name":"marketplaceId","type":"varchar(50)","tableName":"sku_file","IsPrimary":false},{"name":"previousId","type":"int","tableName":"sku_file","IsPrimary":false},{"name":"skuId","type":"int","tableName":"sku_file","IsPrimary":false,"referencedTable":"sku","referencedColumn":"id"},{"name":"previousSkuId","type":"int","tableName":"sku_file","IsPrimary":false},{"name":"archiveId","type":"bigint","tableName":"sku_file","IsPrimary":false},{"name":"sellerId","type":"int","tableName":"sku_file","IsPrimary":false},{"name":"previousSellerId","type":"text","tableName":"sku_file","IsPrimary":false},{"name":"url","type":"text","tableName":"sku_file","IsPrimary":false},{"name":"name","type":"text","tableName":"sku_file","IsPrimary":false},{"name":"isMain","type":"int","tableName":"sku_file","IsPrimary":false},{"name":"label","type":"text","tableName":"sku_file","IsPrimary":false}]},{"name":"sku_attachment","columns":[{"name":"id","type":"int","tableName":"sku_attachment","IsPrimary":true},{"name":"previousId","type":"int","tableName":"sku_attachment","IsPrimary":false},{"name":"sellerId","type":"int","tableName":"sku_attachment","IsPrimary":false},{"name":"previousSellerId","type":"text","tableName":"sku_attachment","IsPrimary":false},{"name":"attachmentId","type":"int","tableName":"sku_attachment","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"sku_attachment","IsPrimary":false},{"name":"skuId","type":"int","tableName":"sku_attachment","IsPrimary":false,"referencedTable":"sku","referencedColumn":"id"},{"name":"previousSkuId","type":"int","tableName":"sku_attachment","IsPrimary":false}]},{"name":"sku","columns":[{"name":"id","type":"int","tableName":"sku","IsPrimary":true},{"name":"sellerId","type":"int","tableName":"sku","IsPrimary":false,"referencedTable":"sellers","referencedColumn":"id"},{"name":"previousId","type":"int","tableName":"sku","IsPrimary":false},{"name":"previousProductId","type":"int","tableName":"sku","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"sku","IsPrimary":false},{"name":"isPersisted","type":"tinyint(1)","tableName":"sku","IsPrimary":false},{"name":"status","type":"int","tableName":"sku","IsPrimary":false},{"name":"productId","type":"int","tableName":"sku","IsPrimary":false,"referencedTable":"products","referencedColumn":"id"},{"name":"activateIfPossible","type":"tinyint(1)","tableName":"sku","IsPrimary":false},{"name":"name","type":"text","tableName":"sku","IsPrimary":false},{"name":"refId","type":"varchar(50)","tableName":"sku","IsPrimary":false},{"name":"packagedHeight","type":"int","tableName":"sku","IsPrimary":false},{"name":"packagedLength","type":"int","tableName":"sku","IsPrimary":false},{"name":"packagedWidth","type":"int","tableName":"sku","IsPrimary":false},{"name":"packagedWeightKg","type":"int","tableName":"sku","IsPrimary":false},{"name":"height","type":"int","tableName":"sku","IsPrimary":false},{"name":"length","type":"int","tableName":"sku","IsPrimary":false},{"name":"width","type":"int","tableName":"sku","IsPrimary":false},{"name":"weightKg","type":"int","tableName":"sku","IsPrimary":false},{"name":"cubicWeight","type":"int","tableName":"sku","IsPrimary":false},{"name":"isKit","type":"tinyint(1)","tableName":"sku","IsPrimary":false},{"name":"creationDate","type":"timestamp","tableName":"sku","IsPrimary":false},{"name":"rewardValue","type":"int","tableName":"sku","IsPrimary":false},{"name":"manufacturerCode","type":"varchar(50)","tableName":"sku","IsPrimary":false},{"name":"commercialConditionId","type":"int","tableName":"sku","IsPrimary":false},{"name":"measurementUnit","type":"varchar(10)","tableName":"sku","IsPrimary":false},{"name":"unitMultiplier","type":"int","tableName":"sku","IsPrimary":false},{"name":"modalType","type":"int","tableName":"sku","IsPrimary":false},{"name":"kitItensSellApart","type":"tinyint(1)","tableName":"sku","IsPrimary":false},{"name":"isActive","type":"tinyint(1)","tableName":"sku","IsPrimary":false},{"name":"videos","type":"json","tableName":"sku","IsPrimary":false},{"name":"previousSellerId","type":"varchar(150)","tableName":"sku","IsPrimary":false}]},{"name":"seller_funds","columns":[{"name":"id","type":"int","tableName":"seller_funds","IsPrimary":false,"referencedTable":"sellers","referencedColumn":"id"},{"name":"balance","type":"int","tableName":"seller_funds","IsPrimary":false},{"name":"updatedAt","type":"timestamp","tableName":"seller_funds","IsPrimary":false}]},{"name":"products","columns":[{"name":"id","type":"int","tableName":"products","IsPrimary":true},{"name":"previousId","type":"int","tableName":"products","IsPrimary":false},{"name":"name","type":"varchar(200)","tableName":"products","IsPrimary":false},{"name":"departmentId","type":"int","tableName":"products","IsPrimary":false},{"name":"categoryId","type":"int","tableName":"products","IsPrimary":false,"referencedTable":"categories","referencedColumn":"id"},{"name":"previousCategoryId","type":"int","tableName":"products","IsPrimary":false},{"name":"previousBrandId","type":"int","tableName":"products","IsPrimary":false},{"name":"brandId","type":"int","tableName":"products","IsPrimary":false,"referencedTable":"brands","referencedColumn":"id"},{"name":"linkId","type":"text","tableName":"products","IsPrimary":false},{"name":"refId","type":"varchar(200)","tableName":"products","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"products","IsPrimary":false},{"name":"isVisible","type":"tinyint(1)","tableName":"products","IsPrimary":false},{"name":"description","type":"text","tableName":"products","IsPrimary":false},{"name":"descriptionShort","type":"text","tableName":"products","IsPrimary":false},{"name":"releaseDate","type":"timestamp","tableName":"products","IsPrimary":false},{"name":"keyWords","type":"varchar(200)","tableName":"products","IsPrimary":false},{"name":"title","type":"varchar(200)","tableName":"products","IsPrimary":false},{"name":"taxCode","type":"varchar(200)","tableName":"products","IsPrimary":false},{"name":"metaTagDescription","type":"text","tableName":"products","IsPrimary":false},{"name":"supplierId","type":"varchar(200)","tableName":"products","IsPrimary":false},{"name":"showWithoutStock","type":"tinyint(1)","tableName":"products","IsPrimary":false},{"name":"adWordsRemarketingCode","type":"varchar(200)","tableName":"products","IsPrimary":false},{"name":"lomadeeCampaignCode","type":"varchar(200)","tableName":"products","IsPrimary":false},{"name":"status","type":"int","tableName":"products","IsPrimary":false},{"name":"isActive","type":"tinyint(1)","tableName":"products","IsPrimary":false},{"name":"sellerId","type":"int","tableName":"products","IsPrimary":false,"referencedTable":"sellers","referencedColumn":"id"},{"name":"previousSellerId","type":"text","tableName":"products","IsPrimary":false}]},{"name":"orders","columns":[{"name":"id","type":"int","tableName":"orders","IsPrimary":true},{"name":"previousId","type":"varchar(150)","tableName":"orders","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"orders","IsPrimary":false,"referencedTable":"marketplaces","referencedColumn":"id"},{"name":"adId","type":"int","tableName":"orders","IsPrimary":false,"referencedTable":"ads","referencedColumn":"id"},{"name":"status","type":"int","tableName":"orders","IsPrimary":false},{"name":"createdAt","type":"timestamp","tableName":"orders","IsPrimary":false},{"name":"value","type":"int","tableName":"orders","IsPrimary":false}]},{"name":"interactions","columns":[{"name":"id","type":"int","tableName":"interactions","IsPrimary":false},{"name":"id","type":"int","tableName":"interactions","IsPrimary":true},{"name":"id","type":"int","tableName":"interactions","IsPrimary":false,"referencedTable":"ads","referencedColumn":"id"},{"name":"views","type":"bigint","tableName":"interactions","IsPrimary":false},{"name":"cr","type":"double","tableName":"interactions","IsPrimary":false},{"name":"sold","type":"bigint","tableName":"interactions","IsPrimary":false},{"name":"clicks","type":"bigint","tableName":"interactions","IsPrimary":false},{"name":"ctr","type":"double","tableName":"interactions","IsPrimary":false}]},{"name":"credentials","columns":[{"name":"id","type":"int","tableName":"credentials","IsPrimary":true},{"name":"credential","type":"text","tableName":"credentials","IsPrimary":false},{"name":"name","type":"varchar(150)","tableName":"credentials","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"credentials","IsPrimary":false,"referencedTable":"marketplaces","referencedColumn":"id"}]},{"name":"category_specification","columns":[{"name":"id","type":"int","tableName":"category_specification","IsPrimary":true},{"name":"name","type":"text","tableName":"category_specification","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"category_specification","IsPrimary":false},{"name":"categoryId","type":"int","tableName":"category_specification","IsPrimary":false,"referencedTable":"categories","referencedColumn":"id"},{"name":"previousId","type":"int","tableName":"category_specification","IsPrimary":false},{"name":"fieldId","type":"int","tableName":"category_specification","IsPrimary":false},{"name":"status","type":"int","tableName":"category_specification","IsPrimary":false},{"name":"isStockKeepingUnit","type":"tinyint(1)","tableName":"category_specification","IsPrimary":false}]},{"name":"campaign_specification","columns":[{"name":"id","type":"int","tableName":"campaign_specification","IsPrimary":true},{"name":"id","type":"int","tableName":"campaign_specification","IsPrimary":false,"referencedTable":"campaigns","referencedColumn":"id"},{"name":"estimatedClicks","type":"int","tableName":"campaign_specification","IsPrimary":false},{"name":"sellerId","type":"text","tableName":"campaign_specification","IsPrimary":false}]},{"name":"campaign_placement","columns":[{"name":"id","type":"int","tableName":"campaign_placement","IsPrimary":true},{"name":"id","type":"int","tableName":"campaign_placement","IsPrimary":false,"referencedTable":"campaigns","referencedColumn":"id"},{"name":"placement","type":"int","tableName":"campaign_placement","IsPrimary":false},{"name":"page","type":"text","tableName":"campaign_placement","IsPrimary":false}]},{"name":"campaign_payment","columns":[{"name":"id","type":"int","tableName":"campaign_payment","IsPrimary":true},{"name":"id","type":"int","tableName":"campaign_payment","IsPrimary":false,"referencedTable":"campaigns","referencedColumn":"id"},{"name":"paymentStatus","type":"int","tableName":"campaign_payment","IsPrimary":false},{"name":"totalBudget","type":"int","tableName":"campaign_payment","IsPrimary":false},{"name":"dailyBudget","type":"int","tableName":"campaign_payment","IsPrimary":false},{"name":"usedBudget","type":"int","tableName":"campaign_payment","IsPrimary":false},{"name":"dailyBudgetUsed","type":"int","tableName":"campaign_payment","IsPrimary":false},{"name":"isDaily","type":"tinyint(1)","tableName":"campaign_payment","IsPrimary":false}]},{"name":"brand_context","columns":[{"name":"id","type":"bigint","tableName":"brand_context","IsPrimary":true},{"name":"name","type":"text","tableName":"brand_context","IsPrimary":false},{"name":"text","type":"text","tableName":"brand_context","IsPrimary":false},{"name":"keywords","type":"text","tableName":"brand_context","IsPrimary":false},{"name":"siteTitle","type":"text","tableName":"brand_context","IsPrimary":false},{"name":"menuHome","type":"tinyint(1)","tableName":"brand_context","IsPrimary":false},{"name":"adWordsRemarketingCode","type":"text","tableName":"brand_context","IsPrimary":false},{"name":"previousId","type":"bigint","tableName":"brand_context","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"brand_context","IsPrimary":false},{"name":"brandId","type":"int","tableName":"brand_context","IsPrimary":false,"referencedTable":"brands","referencedColumn":"id"},{"name":"lomadeeCampaignCode","type":"text","tableName":"brand_context","IsPrimary":false},{"name":"score","type":"int","tableName":"brand_context","IsPrimary":false},{"name":"linkId","type":"text","tableName":"brand_context","IsPrimary":false}]},{"name":"ads","columns":[{"name":"id","type":"int","tableName":"ads","IsPrimary":true},{"name":"isActive","type":"tinyint(1)","tableName":"ads","IsPrimary":false},{"name":"skuId","type":"int","tableName":"ads","IsPrimary":false,"referencedTable":"sku","referencedColumn":"id"},{"name":"skuId","type":"int","tableName":"ads","IsPrimary":false,"referencedTable":"sku","referencedColumn":"id"},{"name":"campaignId","type":"int","tableName":"ads","IsPrimary":false,"referencedTable":"campaigns","referencedColumn":"id"},{"name":"campaignId","type":"int","tableName":"ads","IsPrimary":false,"referencedTable":"campaigns","referencedColumn":"id"},{"name":"type","type":"int","tableName":"ads","IsPrimary":false},{"name":"marketplaceId","type":"varchar(50)","tableName":"ads","IsPrimary":false,"referencedTable":"marketplaces","referencedColumn":"id"},{"name":"marketplaceId","type":"varchar(50)","tableName":"ads","IsPrimary":false,"referencedTable":"marketplaces","referencedColumn":"id"},{"name":"cpc","type":"int","tableName":"ads","IsPrimary":false},{"name":"productId","type":"int","tableName":"ads","IsPrimary":false,"referencedTable":"products","referencedColumn":"id"},{"name":"productId","type":"int","tableName":"ads","IsPrimary":false,"referencedTable":"products","referencedColumn":"id"},{"name":"status","type":"int","tableName":"ads","IsPrimary":false},{"name":"metadata","type":"json","tableName":"ads","IsPrimary":false},{"name":"sellerId","type":"int","tableName":"ads","IsPrimary":false,"referencedTable":"sellers","referencedColumn":"id"},{"name":"sellerId","type":"int","tableName":"ads","IsPrimary":false,"referencedTable":"sellers","referencedColumn":"id"}]},{"name":"ads_rotation","columns":[{"name":"id","type":"int","tableName":"ads_rotation","IsPrimary":true},{"name":"id","type":"int","tableName":"ads_rotation","IsPrimary":false,"referencedTable":"ads","referencedColumn":"id"},{"name":"id","type":"int","tableName":"ads_rotation","IsPrimary":false,"referencedTable":"ads","referencedColumn":"id"},{"name":"inRotation","type":"tinyint(1)","tableName":"ads_rotation","IsPrimary":false},{"name":"canGetInRotation","type":"tinyint(1)","tableName":"ads_rotation","IsPrimary":false},{"name":"score","type":"int","tableName":"ads_rotation","IsPrimary":false}]},{"name":"ad_history","columns":[{"name":"id","type":"int","tableName":"ad_history","IsPrimary":true},{"name":"skuId","type":"int","tableName":"ad_history","IsPrimary":false},{"name":"adId","type":"int","tableName":"ad_history","IsPrimary":false,"referencedTable":"ads","referencedColumn":"id"},{"name":"adId","type":"int","tableName":"ad_history","IsPrimary":false,"referencedTable":"ads","referencedColumn":"id"}]}]}
+{
+     "name": "tracer",
+     "tables": [
+          {
+               "name": "author",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "author", "IsPrimary": true },
+                    {
+                         "name": "name",
+                         "type": "varchar(100)",
+                         "tableName": "author",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "lastName",
+                         "type": "varchar(100)",
+                         "tableName": "author",
+                         "IsPrimary": false
+                    },
+                    { "name": "age", "type": "int", "tableName": "author", "IsPrimary": false }
+               ]
+          },
+          {
+               "name": "category",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "category", "IsPrimary": true },
+                    {
+                         "name": "name",
+                         "type": "varchar(100)",
+                         "tableName": "category",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "genre",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "genre", "IsPrimary": true },
+                    {
+                         "name": "name",
+                         "type": "varchar(100)",
+                         "tableName": "genre",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "author_specification",
+               "columns": [
+                    {
+                         "name": "cityId",
+                         "type": "int",
+                         "tableName": "author_specification",
+                         "IsPrimary": true
+                    },
+                    {
+                         "name": "state",
+                         "type": "int",
+                         "tableName": "author_specification",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "authorId",
+                         "type": "int",
+                         "tableName": "author_specification",
+                         "IsPrimary": false,
+                         "referencedTable": "author",
+                         "referencedColumn": "id"
+                    }
+               ]
+          },
+          {
+               "name": "book",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "book", "IsPrimary": true },
+                    {
+                         "name": "name",
+                         "type": "varchar(100)",
+                         "tableName": "book",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "color",
+                         "type": "varchar(7)",
+                         "tableName": "book",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "categoryId",
+                         "type": "int",
+                         "tableName": "book",
+                         "IsPrimary": false,
+                         "referencedTable": "category",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "authorId",
+                         "type": "int",
+                         "tableName": "book",
+                         "IsPrimary": false,
+                         "referencedTable": "author",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "genreId",
+                         "type": "int",
+                         "tableName": "book",
+                         "IsPrimary": false,
+                         "referencedTable": "genre",
+                         "referencedColumn": "id"
+                    }
+               ]
+          },
+          {
+               "name": "vtex_sku_price",
+               "columns": [
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "vtex_sku_price",
+                         "IsPrimary": true
+                    },
+                    {
+                         "name": "listPrice",
+                         "type": "bigint",
+                         "tableName": "vtex_sku_price",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "skuId",
+                         "type": "int",
+                         "tableName": "vtex_sku_price",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousId",
+                         "type": "int",
+                         "tableName": "vtex_sku_price",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "vtex_sku_price",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "sellingPrice",
+                         "type": "int",
+                         "tableName": "vtex_sku_price",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "paymentSystem",
+                         "type": "int",
+                         "tableName": "vtex_sku_price",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "paymentSystemName",
+                         "type": "varchar(50)",
+                         "tableName": "vtex_sku_price",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousSkuId",
+                         "type": "int",
+                         "tableName": "vtex_sku_price",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "vtex_sku_inventory",
+               "columns": [
+                    {
+                         "name": "skuId",
+                         "type": "int",
+                         "tableName": "vtex_sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "id",
+                         "type": "varchar(100)",
+                         "tableName": "vtex_sku_inventory",
+                         "IsPrimary": true
+                    },
+                    {
+                         "name": "warehouseId",
+                         "type": "varchar(100)",
+                         "tableName": "vtex_sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "totalQuantity",
+                         "type": "int",
+                         "tableName": "vtex_sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "reservedQuantity",
+                         "type": "int",
+                         "tableName": "vtex_sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "availableQuantity",
+                         "type": "int",
+                         "tableName": "vtex_sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "hasUnlimitedQuantity",
+                         "type": "tinyint(1)",
+                         "tableName": "vtex_sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isUnlimited",
+                         "type": "tinyint(1)",
+                         "tableName": "vtex_sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "timeToRefill",
+                         "type": "int",
+                         "tableName": "vtex_sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "dateOfSupplyUtc",
+                         "type": "timestamp",
+                         "tableName": "vtex_sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "supplyLotId",
+                         "type": "varchar(100)",
+                         "tableName": "vtex_sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "keepSellingAfterExpiration",
+                         "type": "tinyint(1)",
+                         "tableName": "vtex_sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "transfer",
+                         "type": "text",
+                         "tableName": "vtex_sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "leadTime",
+                         "type": "text",
+                         "tableName": "vtex_sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousWarehouseId",
+                         "type": "varchar(100)",
+                         "tableName": "vtex_sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousSkuId",
+                         "type": "int",
+                         "tableName": "vtex_sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "vtex_sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "status",
+                         "type": "int",
+                         "tableName": "vtex_sku_inventory",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "vtex_sku_file",
+               "columns": [
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "vtex_sku_file",
+                         "IsPrimary": true
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "vtex_sku_file",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousId",
+                         "type": "int",
+                         "tableName": "vtex_sku_file",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "skuId",
+                         "type": "int",
+                         "tableName": "vtex_sku_file",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousSkuId",
+                         "type": "int",
+                         "tableName": "vtex_sku_file",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "archiveId",
+                         "type": "bigint",
+                         "tableName": "vtex_sku_file",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "url",
+                         "type": "text",
+                         "tableName": "vtex_sku_file",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "name",
+                         "type": "text",
+                         "tableName": "vtex_sku_file",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isMain",
+                         "type": "int",
+                         "tableName": "vtex_sku_file",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "label",
+                         "type": "text",
+                         "tableName": "vtex_sku_file",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "vtex_sku_attachment",
+               "columns": [
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "vtex_sku_attachment",
+                         "IsPrimary": true
+                    },
+                    {
+                         "name": "previousId",
+                         "type": "int",
+                         "tableName": "vtex_sku_attachment",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousSkuId",
+                         "type": "int",
+                         "tableName": "vtex_sku_attachment",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "attachmentId",
+                         "type": "int",
+                         "tableName": "vtex_sku_attachment",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "vtex_sku_attachment",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "skuId",
+                         "type": "int",
+                         "tableName": "vtex_sku_attachment",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "vtex_sku",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "vtex_sku", "IsPrimary": true },
+                    {
+                         "name": "previousId",
+                         "type": "int",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousProductId",
+                         "type": "int",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isPersisted",
+                         "type": "tinyint(1)",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "status",
+                         "type": "int",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "productId",
+                         "type": "int",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "activateIfPossible",
+                         "type": "tinyint(1)",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    { "name": "name", "type": "text", "tableName": "vtex_sku", "IsPrimary": false },
+                    {
+                         "name": "refId",
+                         "type": "varchar(50)",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "packagedHeight",
+                         "type": "int",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "packagedLength",
+                         "type": "int",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "packagedWidth",
+                         "type": "int",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "packagedWeightKg",
+                         "type": "int",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "height",
+                         "type": "int",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "length",
+                         "type": "int",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    { "name": "width", "type": "int", "tableName": "vtex_sku", "IsPrimary": false },
+                    {
+                         "name": "weightKg",
+                         "type": "int",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "cubicWeight",
+                         "type": "int",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isKit",
+                         "type": "tinyint(1)",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "creationDate",
+                         "type": "timestamp",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "rewardValue",
+                         "type": "int",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "manufacturerCode",
+                         "type": "varchar(50)",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "commercialConditionId",
+                         "type": "int",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "measurementUnit",
+                         "type": "varchar(10)",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "unitMultiplier",
+                         "type": "int",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "modalType",
+                         "type": "int",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "kitItensSellApart",
+                         "type": "tinyint(1)",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isActive",
+                         "type": "tinyint(1)",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "videos",
+                         "type": "json",
+                         "tableName": "vtex_sku",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "vtex_products",
+               "columns": [
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "vtex_products",
+                         "IsPrimary": true
+                    },
+                    {
+                         "name": "previousId",
+                         "type": "int",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "name",
+                         "type": "varchar(200)",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "departmentId",
+                         "type": "int",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "categoryId",
+                         "type": "int",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousCategoryId",
+                         "type": "int",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousBrandId",
+                         "type": "int",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "brandId",
+                         "type": "int",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "linkId",
+                         "type": "text",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "refId",
+                         "type": "varchar(200)",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isVisible",
+                         "type": "tinyint(1)",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "description",
+                         "type": "text",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "descriptionShort",
+                         "type": "text",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "releaseDate",
+                         "type": "timestamp",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "keyWords",
+                         "type": "varchar(200)",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "title",
+                         "type": "varchar(200)",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "taxCode",
+                         "type": "varchar(200)",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "metaTagDescription",
+                         "type": "text",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "supplierId",
+                         "type": "varchar(200)",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "showWithoutStock",
+                         "type": "tinyint(1)",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "adWordsRemarketingCode",
+                         "type": "varchar(200)",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "lomadeeCampaignCode",
+                         "type": "varchar(200)",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "status",
+                         "type": "int",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isActive",
+                         "type": "tinyint(1)",
+                         "tableName": "vtex_products",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "sku_specification",
+               "columns": [
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "sku_specification",
+                         "IsPrimary": true
+                    },
+                    {
+                         "name": "previousId",
+                         "type": "int",
+                         "tableName": "sku_specification",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "sku_specification",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "skuId",
+                         "type": "int",
+                         "tableName": "sku_specification",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "fieldId",
+                         "type": "int",
+                         "tableName": "sku_specification",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "fieldValueId",
+                         "type": "int",
+                         "tableName": "sku_specification",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "status",
+                         "type": "int",
+                         "tableName": "sku_specification",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "text",
+                         "type": "text",
+                         "tableName": "sku_specification",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "sku_sellers",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "sku_sellers", "IsPrimary": true },
+                    {
+                         "name": "previousId",
+                         "type": "int",
+                         "tableName": "sku_sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousSellerId",
+                         "type": "text",
+                         "tableName": "sku_sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "sellerId",
+                         "type": "int",
+                         "tableName": "sku_sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "skuId",
+                         "type": "int",
+                         "tableName": "sku_sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "sku_sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousSkuId",
+                         "type": "int",
+                         "tableName": "sku_sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isActive",
+                         "type": "tinyint(1)",
+                         "tableName": "sku_sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isRemoved",
+                         "type": "tinyint(1)",
+                         "tableName": "sku_sellers",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "sku_kit",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "sku_kit", "IsPrimary": true },
+                    {
+                         "name": "previousId",
+                         "type": "int",
+                         "tableName": "sku_kit",
+                         "IsPrimary": false
+                    },
+                    { "name": "skuId", "type": "int", "tableName": "sku_kit", "IsPrimary": false },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "sku_kit",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "skuParentId",
+                         "type": "int",
+                         "tableName": "sku_kit",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "quantity",
+                         "type": "int",
+                         "tableName": "sku_kit",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "unitPrice",
+                         "type": "int",
+                         "tableName": "sku_kit",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "sku_inventory",
+               "columns": [
+                    {
+                         "name": "skuId",
+                         "type": "int",
+                         "tableName": "sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "totalQuantity",
+                         "type": "int",
+                         "tableName": "sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "reservedQuantity",
+                         "type": "int",
+                         "tableName": "sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "availableQuantity",
+                         "type": "int",
+                         "tableName": "sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "hasUnlimitedQuantity",
+                         "type": "tinyint(1)",
+                         "tableName": "sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isUnlimited",
+                         "type": "tinyint(1)",
+                         "tableName": "sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousSkuId",
+                         "type": "int",
+                         "tableName": "sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "sellerId",
+                         "type": "int",
+                         "tableName": "sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousSellerId",
+                         "type": "text",
+                         "tableName": "sku_inventory",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "status",
+                         "type": "int",
+                         "tableName": "sku_inventory",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "sellers",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "sellers", "IsPrimary": true },
+                    {
+                         "name": "urlLogo",
+                         "type": "text",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    { "name": "name", "type": "text", "tableName": "sellers", "IsPrimary": false },
+                    {
+                         "name": "previousId",
+                         "type": "text",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    { "name": "email", "type": "text", "tableName": "sellers", "IsPrimary": false },
+                    {
+                         "name": "description",
+                         "type": "text",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "exchangeReturnPolicy",
+                         "type": "text",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "deliveryPolicy",
+                         "type": "text",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "CNPJ",
+                         "type": "varchar(15)",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "CSCIdentification",
+                         "type": "varchar(200)",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "archiveId",
+                         "type": "int",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "productCommissionPercentage",
+                         "type": "int",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "freightCommissionPercentage",
+                         "type": "int",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "categoryCommissionPercentage",
+                         "type": "text",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "fulfillmentEndpoint",
+                         "type": "text",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "catalogSystemEndpoint",
+                         "type": "text",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    { "name": "status", "type": "int", "tableName": "sellers", "IsPrimary": false },
+                    {
+                         "name": "isBetterScope",
+                         "type": "tinyint(1)",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "merchantName",
+                         "type": "text",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "userName",
+                         "type": "text",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "useHybridPaymentOptions",
+                         "type": "tinyint(1)",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "fulfillmentSellerId",
+                         "type": "varchar(150)",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "sellerType",
+                         "type": "int",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "trustPolicy",
+                         "type": "text",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "groups",
+                         "type": "json",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isActive",
+                         "type": "tinyint(1)",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "customerId",
+                         "type": "varchar(50)",
+                         "tableName": "sellers",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "roles",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "roles", "IsPrimary": true },
+                    {
+                         "name": "marketplaceId",
+                         "type": "text",
+                         "tableName": "roles",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "name",
+                         "type": "varchar(50)",
+                         "tableName": "roles",
+                         "IsPrimary": false
+                    },
+                    { "name": "status", "type": "int", "tableName": "roles", "IsPrimary": false },
+                    {
+                         "name": "permissions",
+                         "type": "json",
+                         "tableName": "roles",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "products_specification",
+               "columns": [
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "products_specification",
+                         "IsPrimary": true
+                    },
+                    {
+                         "name": "productId",
+                         "type": "int",
+                         "tableName": "products_specification",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "products_specification",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousId",
+                         "type": "int",
+                         "tableName": "products_specification",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "fieldId",
+                         "type": "int",
+                         "tableName": "products_specification",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "fieldValueId",
+                         "type": "int",
+                         "tableName": "products_specification",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "text",
+                         "type": "text",
+                         "tableName": "products_specification",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "status",
+                         "type": "int",
+                         "tableName": "products_specification",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "algorithm_runs",
+               "columns": [
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "algorithm_runs",
+                         "IsPrimary": true
+                    },
+                    {
+                         "name": "endedAt",
+                         "type": "timestamp",
+                         "tableName": "algorithm_runs",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "startedAt",
+                         "type": "timestamp",
+                         "tableName": "algorithm_runs",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "itemsProcessed",
+                         "type": "int",
+                         "tableName": "algorithm_runs",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "memoryUsed",
+                         "type": "json",
+                         "tableName": "algorithm_runs",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "attachments",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "attachments", "IsPrimary": true },
+                    {
+                         "name": "status",
+                         "type": "int",
+                         "tableName": "attachments",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "attachments",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousId",
+                         "type": "int",
+                         "tableName": "attachments",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "name",
+                         "type": "text",
+                         "tableName": "attachments",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isRequired",
+                         "type": "tinyint(1)",
+                         "tableName": "attachments",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "domains",
+                         "type": "json",
+                         "tableName": "attachments",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "brands",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "brands", "IsPrimary": true },
+                    { "name": "name", "type": "text", "tableName": "brands", "IsPrimary": false },
+                    { "name": "status", "type": "int", "tableName": "brands", "IsPrimary": false },
+                    { "name": "title", "type": "text", "tableName": "brands", "IsPrimary": false },
+                    {
+                         "name": "metaTagDescription",
+                         "type": "text",
+                         "tableName": "brands",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousId",
+                         "type": "int",
+                         "tableName": "brands",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "brands",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "imageUrl",
+                         "type": "text",
+                         "tableName": "brands",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "campaigns",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "campaigns", "IsPrimary": true },
+                    {
+                         "name": "name",
+                         "type": "varchar(50)",
+                         "tableName": "campaigns",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "startAt",
+                         "type": "timestamp",
+                         "tableName": "campaigns",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "createdAt",
+                         "type": "timestamp",
+                         "tableName": "campaigns",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "endAt",
+                         "type": "timestamp",
+                         "tableName": "campaigns",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "campaigns",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "status",
+                         "type": "int",
+                         "tableName": "campaigns",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isActive",
+                         "type": "tinyint(1)",
+                         "tableName": "campaigns",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "sellerId",
+                         "type": "text",
+                         "tableName": "campaigns",
+                         "IsPrimary": false
+                    },
+                    { "name": "type", "type": "int", "tableName": "campaigns", "IsPrimary": false },
+                    {
+                         "name": "placement",
+                         "type": "int",
+                         "tableName": "campaigns",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "categories",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "categories", "IsPrimary": true },
+                    {
+                         "name": "name",
+                         "type": "text",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "title",
+                         "type": "text",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "description",
+                         "type": "text",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "keywords",
+                         "type": "text",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "status",
+                         "type": "int",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "lomadeeCampaignCode",
+                         "type": "text",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "adWordsRemarketingCode",
+                         "type": "text",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "showInStoreFront",
+                         "type": "tinyint(1)",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "showBrandFilter",
+                         "type": "tinyint(1)",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousId",
+                         "type": "int",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "activeStoreFrontLink",
+                         "type": "tinyint(1)",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "globalCategoryId",
+                         "type": "int",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "stockKeepingUnitSelectionMode",
+                         "type": "text",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "score",
+                         "type": "int",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "linkId",
+                         "type": "text",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "hasChildren",
+                         "type": "tinyint(1)",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "url",
+                         "type": "text",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "metaTagDescription",
+                         "type": "text",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "parent",
+                         "type": "int",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousParentId",
+                         "type": "int",
+                         "tableName": "categories",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "interaction_history",
+               "columns": [
+                    {
+                         "name": "adId",
+                         "type": "int",
+                         "tableName": "interaction_history",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "createdAt",
+                         "type": "timestamp",
+                         "tableName": "interaction_history",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "metadata",
+                         "type": "json",
+                         "tableName": "interaction_history",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "type",
+                         "type": "varchar(50)",
+                         "tableName": "interaction_history",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "count",
+                         "type": "bigint",
+                         "tableName": "interaction_history",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "origin",
+                         "type": "varchar(50)",
+                         "tableName": "interaction_history",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "status",
+                         "type": "int",
+                         "tableName": "interaction_history",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "logging",
+               "columns": [
+                    {
+                         "name": "createdAt",
+                         "type": "timestamp",
+                         "tableName": "logging",
+                         "IsPrimary": false
+                    },
+                    { "name": "value", "type": "json", "tableName": "logging", "IsPrimary": false },
+                    {
+                         "name": "name",
+                         "type": "varchar(150)",
+                         "tableName": "logging",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "platform",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "platform", "IsPrimary": true },
+                    {
+                         "name": "name",
+                         "type": "varchar(50)",
+                         "tableName": "platform",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "marketplaces",
+               "columns": [
+                    {
+                         "name": "id",
+                         "type": "varchar(50)",
+                         "tableName": "marketplaces",
+                         "IsPrimary": true
+                    },
+                    {
+                         "name": "name",
+                         "type": "varchar(50)",
+                         "tableName": "marketplaces",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "status",
+                         "type": "int",
+                         "tableName": "marketplaces",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "platformId",
+                         "type": "int",
+                         "tableName": "marketplaces",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "accountId",
+                         "type": "varchar(50)",
+                         "tableName": "marketplaces",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "marketplaces",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "sku_price",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "sku_price", "IsPrimary": true },
+                    {
+                         "name": "listPrice",
+                         "type": "bigint",
+                         "tableName": "sku_price",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "skuId",
+                         "type": "int",
+                         "tableName": "sku_price",
+                         "IsPrimary": false,
+                         "referencedTable": "sku",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "previousId",
+                         "type": "int",
+                         "tableName": "sku_price",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "sku_price",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "sellingPrice",
+                         "type": "int",
+                         "tableName": "sku_price",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "paymentSystem",
+                         "type": "int",
+                         "tableName": "sku_price",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "paymentSystemName",
+                         "type": "varchar(50)",
+                         "tableName": "sku_price",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "sellerId",
+                         "type": "int",
+                         "tableName": "sku_price",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousSellerId",
+                         "type": "text",
+                         "tableName": "sku_price",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousSkuId",
+                         "type": "int",
+                         "tableName": "sku_price",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "sku_file",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "sku_file", "IsPrimary": true },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "sku_file",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousId",
+                         "type": "int",
+                         "tableName": "sku_file",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "skuId",
+                         "type": "int",
+                         "tableName": "sku_file",
+                         "IsPrimary": false,
+                         "referencedTable": "sku",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "previousSkuId",
+                         "type": "int",
+                         "tableName": "sku_file",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "archiveId",
+                         "type": "bigint",
+                         "tableName": "sku_file",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "sellerId",
+                         "type": "int",
+                         "tableName": "sku_file",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousSellerId",
+                         "type": "text",
+                         "tableName": "sku_file",
+                         "IsPrimary": false
+                    },
+                    { "name": "url", "type": "text", "tableName": "sku_file", "IsPrimary": false },
+                    { "name": "name", "type": "text", "tableName": "sku_file", "IsPrimary": false },
+                    {
+                         "name": "isMain",
+                         "type": "int",
+                         "tableName": "sku_file",
+                         "IsPrimary": false
+                    },
+                    { "name": "label", "type": "text", "tableName": "sku_file", "IsPrimary": false }
+               ]
+          },
+          {
+               "name": "sku_attachment",
+               "columns": [
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "sku_attachment",
+                         "IsPrimary": true
+                    },
+                    {
+                         "name": "previousId",
+                         "type": "int",
+                         "tableName": "sku_attachment",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "sellerId",
+                         "type": "int",
+                         "tableName": "sku_attachment",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousSellerId",
+                         "type": "text",
+                         "tableName": "sku_attachment",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "attachmentId",
+                         "type": "int",
+                         "tableName": "sku_attachment",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "sku_attachment",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "skuId",
+                         "type": "int",
+                         "tableName": "sku_attachment",
+                         "IsPrimary": false,
+                         "referencedTable": "sku",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "previousSkuId",
+                         "type": "int",
+                         "tableName": "sku_attachment",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "sku",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "sku", "IsPrimary": true },
+                    {
+                         "name": "sellerId",
+                         "type": "int",
+                         "tableName": "sku",
+                         "IsPrimary": false,
+                         "referencedTable": "sellers",
+                         "referencedColumn": "id"
+                    },
+                    { "name": "previousId", "type": "int", "tableName": "sku", "IsPrimary": false },
+                    {
+                         "name": "previousProductId",
+                         "type": "int",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isPersisted",
+                         "type": "tinyint(1)",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    },
+                    { "name": "status", "type": "int", "tableName": "sku", "IsPrimary": false },
+                    {
+                         "name": "productId",
+                         "type": "int",
+                         "tableName": "sku",
+                         "IsPrimary": false,
+                         "referencedTable": "products",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "activateIfPossible",
+                         "type": "tinyint(1)",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    },
+                    { "name": "name", "type": "text", "tableName": "sku", "IsPrimary": false },
+                    {
+                         "name": "refId",
+                         "type": "varchar(50)",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "packagedHeight",
+                         "type": "int",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "packagedLength",
+                         "type": "int",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "packagedWidth",
+                         "type": "int",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "packagedWeightKg",
+                         "type": "int",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    },
+                    { "name": "height", "type": "int", "tableName": "sku", "IsPrimary": false },
+                    { "name": "length", "type": "int", "tableName": "sku", "IsPrimary": false },
+                    { "name": "width", "type": "int", "tableName": "sku", "IsPrimary": false },
+                    { "name": "weightKg", "type": "int", "tableName": "sku", "IsPrimary": false },
+                    {
+                         "name": "cubicWeight",
+                         "type": "int",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isKit",
+                         "type": "tinyint(1)",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "creationDate",
+                         "type": "timestamp",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "rewardValue",
+                         "type": "int",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "manufacturerCode",
+                         "type": "varchar(50)",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "commercialConditionId",
+                         "type": "int",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "measurementUnit",
+                         "type": "varchar(10)",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "unitMultiplier",
+                         "type": "int",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    },
+                    { "name": "modalType", "type": "int", "tableName": "sku", "IsPrimary": false },
+                    {
+                         "name": "kitItensSellApart",
+                         "type": "tinyint(1)",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isActive",
+                         "type": "tinyint(1)",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    },
+                    { "name": "videos", "type": "json", "tableName": "sku", "IsPrimary": false },
+                    {
+                         "name": "previousSellerId",
+                         "type": "varchar(150)",
+                         "tableName": "sku",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "seller_funds",
+               "columns": [
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "seller_funds",
+                         "IsPrimary": false,
+                         "referencedTable": "sellers",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "balance",
+                         "type": "int",
+                         "tableName": "seller_funds",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "updatedAt",
+                         "type": "timestamp",
+                         "tableName": "seller_funds",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "products",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "products", "IsPrimary": true },
+                    {
+                         "name": "previousId",
+                         "type": "int",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "name",
+                         "type": "varchar(200)",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "departmentId",
+                         "type": "int",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "categoryId",
+                         "type": "int",
+                         "tableName": "products",
+                         "IsPrimary": false,
+                         "referencedTable": "categories",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "previousCategoryId",
+                         "type": "int",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousBrandId",
+                         "type": "int",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "brandId",
+                         "type": "int",
+                         "tableName": "products",
+                         "IsPrimary": false,
+                         "referencedTable": "brands",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "linkId",
+                         "type": "text",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "refId",
+                         "type": "varchar(200)",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isVisible",
+                         "type": "tinyint(1)",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "description",
+                         "type": "text",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "descriptionShort",
+                         "type": "text",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "releaseDate",
+                         "type": "timestamp",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "keyWords",
+                         "type": "varchar(200)",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "title",
+                         "type": "varchar(200)",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "taxCode",
+                         "type": "varchar(200)",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "metaTagDescription",
+                         "type": "text",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "supplierId",
+                         "type": "varchar(200)",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "showWithoutStock",
+                         "type": "tinyint(1)",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "adWordsRemarketingCode",
+                         "type": "varchar(200)",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "lomadeeCampaignCode",
+                         "type": "varchar(200)",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "status",
+                         "type": "int",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isActive",
+                         "type": "tinyint(1)",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "sellerId",
+                         "type": "int",
+                         "tableName": "products",
+                         "IsPrimary": false,
+                         "referencedTable": "sellers",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "previousSellerId",
+                         "type": "text",
+                         "tableName": "products",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "orders",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "orders", "IsPrimary": true },
+                    {
+                         "name": "previousId",
+                         "type": "varchar(150)",
+                         "tableName": "orders",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "orders",
+                         "IsPrimary": false,
+                         "referencedTable": "marketplaces",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "adId",
+                         "type": "int",
+                         "tableName": "orders",
+                         "IsPrimary": false,
+                         "referencedTable": "ads",
+                         "referencedColumn": "id"
+                    },
+                    { "name": "status", "type": "int", "tableName": "orders", "IsPrimary": false },
+                    {
+                         "name": "createdAt",
+                         "type": "timestamp",
+                         "tableName": "orders",
+                         "IsPrimary": false
+                    },
+                    { "name": "value", "type": "int", "tableName": "orders", "IsPrimary": false }
+               ]
+          },
+          {
+               "name": "interactions",
+               "columns": [
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "interactions",
+                         "IsPrimary": false
+                    },
+                    { "name": "id", "type": "int", "tableName": "interactions", "IsPrimary": true },
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "interactions",
+                         "IsPrimary": false,
+                         "referencedTable": "ads",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "views",
+                         "type": "bigint",
+                         "tableName": "interactions",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "cr",
+                         "type": "double",
+                         "tableName": "interactions",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "sold",
+                         "type": "bigint",
+                         "tableName": "interactions",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "clicks",
+                         "type": "bigint",
+                         "tableName": "interactions",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "ctr",
+                         "type": "double",
+                         "tableName": "interactions",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "credentials",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "credentials", "IsPrimary": true },
+                    {
+                         "name": "credential",
+                         "type": "text",
+                         "tableName": "credentials",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "name",
+                         "type": "varchar(150)",
+                         "tableName": "credentials",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "credentials",
+                         "IsPrimary": false,
+                         "referencedTable": "marketplaces",
+                         "referencedColumn": "id"
+                    }
+               ]
+          },
+          {
+               "name": "category_specification",
+               "columns": [
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "category_specification",
+                         "IsPrimary": true
+                    },
+                    {
+                         "name": "name",
+                         "type": "text",
+                         "tableName": "category_specification",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "category_specification",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "categoryId",
+                         "type": "int",
+                         "tableName": "category_specification",
+                         "IsPrimary": false,
+                         "referencedTable": "categories",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "previousId",
+                         "type": "int",
+                         "tableName": "category_specification",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "fieldId",
+                         "type": "int",
+                         "tableName": "category_specification",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "status",
+                         "type": "int",
+                         "tableName": "category_specification",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isStockKeepingUnit",
+                         "type": "tinyint(1)",
+                         "tableName": "category_specification",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "campaign_specification",
+               "columns": [
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "campaign_specification",
+                         "IsPrimary": true
+                    },
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "campaign_specification",
+                         "IsPrimary": false,
+                         "referencedTable": "campaigns",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "estimatedClicks",
+                         "type": "int",
+                         "tableName": "campaign_specification",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "sellerId",
+                         "type": "text",
+                         "tableName": "campaign_specification",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "campaign_placement",
+               "columns": [
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "campaign_placement",
+                         "IsPrimary": true
+                    },
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "campaign_placement",
+                         "IsPrimary": false,
+                         "referencedTable": "campaigns",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "placement",
+                         "type": "int",
+                         "tableName": "campaign_placement",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "page",
+                         "type": "text",
+                         "tableName": "campaign_placement",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "campaign_payment",
+               "columns": [
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "campaign_payment",
+                         "IsPrimary": true
+                    },
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "campaign_payment",
+                         "IsPrimary": false,
+                         "referencedTable": "campaigns",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "paymentStatus",
+                         "type": "int",
+                         "tableName": "campaign_payment",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "totalBudget",
+                         "type": "int",
+                         "tableName": "campaign_payment",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "dailyBudget",
+                         "type": "int",
+                         "tableName": "campaign_payment",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "usedBudget",
+                         "type": "int",
+                         "tableName": "campaign_payment",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "dailyBudgetUsed",
+                         "type": "int",
+                         "tableName": "campaign_payment",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "isDaily",
+                         "type": "tinyint(1)",
+                         "tableName": "campaign_payment",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "brand_context",
+               "columns": [
+                    {
+                         "name": "id",
+                         "type": "bigint",
+                         "tableName": "brand_context",
+                         "IsPrimary": true
+                    },
+                    {
+                         "name": "name",
+                         "type": "text",
+                         "tableName": "brand_context",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "text",
+                         "type": "text",
+                         "tableName": "brand_context",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "keywords",
+                         "type": "text",
+                         "tableName": "brand_context",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "siteTitle",
+                         "type": "text",
+                         "tableName": "brand_context",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "menuHome",
+                         "type": "tinyint(1)",
+                         "tableName": "brand_context",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "adWordsRemarketingCode",
+                         "type": "text",
+                         "tableName": "brand_context",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "previousId",
+                         "type": "bigint",
+                         "tableName": "brand_context",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "brand_context",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "brandId",
+                         "type": "int",
+                         "tableName": "brand_context",
+                         "IsPrimary": false,
+                         "referencedTable": "brands",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "lomadeeCampaignCode",
+                         "type": "text",
+                         "tableName": "brand_context",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "score",
+                         "type": "int",
+                         "tableName": "brand_context",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "linkId",
+                         "type": "text",
+                         "tableName": "brand_context",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "ads",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "ads", "IsPrimary": true },
+                    {
+                         "name": "isActive",
+                         "type": "tinyint(1)",
+                         "tableName": "ads",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "skuId",
+                         "type": "int",
+                         "tableName": "ads",
+                         "IsPrimary": false,
+                         "referencedTable": "sku",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "skuId",
+                         "type": "int",
+                         "tableName": "ads",
+                         "IsPrimary": false,
+                         "referencedTable": "sku",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "campaignId",
+                         "type": "int",
+                         "tableName": "ads",
+                         "IsPrimary": false,
+                         "referencedTable": "campaigns",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "campaignId",
+                         "type": "int",
+                         "tableName": "ads",
+                         "IsPrimary": false,
+                         "referencedTable": "campaigns",
+                         "referencedColumn": "id"
+                    },
+                    { "name": "type", "type": "int", "tableName": "ads", "IsPrimary": false },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "ads",
+                         "IsPrimary": false,
+                         "referencedTable": "marketplaces",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "marketplaceId",
+                         "type": "varchar(50)",
+                         "tableName": "ads",
+                         "IsPrimary": false,
+                         "referencedTable": "marketplaces",
+                         "referencedColumn": "id"
+                    },
+                    { "name": "cpc", "type": "int", "tableName": "ads", "IsPrimary": false },
+                    {
+                         "name": "productId",
+                         "type": "int",
+                         "tableName": "ads",
+                         "IsPrimary": false,
+                         "referencedTable": "products",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "productId",
+                         "type": "int",
+                         "tableName": "ads",
+                         "IsPrimary": false,
+                         "referencedTable": "products",
+                         "referencedColumn": "id"
+                    },
+                    { "name": "status", "type": "int", "tableName": "ads", "IsPrimary": false },
+                    { "name": "metadata", "type": "json", "tableName": "ads", "IsPrimary": false },
+                    {
+                         "name": "sellerId",
+                         "type": "int",
+                         "tableName": "ads",
+                         "IsPrimary": false,
+                         "referencedTable": "sellers",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "sellerId",
+                         "type": "int",
+                         "tableName": "ads",
+                         "IsPrimary": false,
+                         "referencedTable": "sellers",
+                         "referencedColumn": "id"
+                    }
+               ]
+          },
+          {
+               "name": "ads_rotation",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "ads_rotation", "IsPrimary": true },
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "ads_rotation",
+                         "IsPrimary": false,
+                         "referencedTable": "ads",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "id",
+                         "type": "int",
+                         "tableName": "ads_rotation",
+                         "IsPrimary": false,
+                         "referencedTable": "ads",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "inRotation",
+                         "type": "tinyint(1)",
+                         "tableName": "ads_rotation",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "canGetInRotation",
+                         "type": "tinyint(1)",
+                         "tableName": "ads_rotation",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "score",
+                         "type": "int",
+                         "tableName": "ads_rotation",
+                         "IsPrimary": false
+                    }
+               ]
+          },
+          {
+               "name": "ad_history",
+               "columns": [
+                    { "name": "id", "type": "int", "tableName": "ad_history", "IsPrimary": true },
+                    {
+                         "name": "skuId",
+                         "type": "int",
+                         "tableName": "ad_history",
+                         "IsPrimary": false
+                    },
+                    {
+                         "name": "adId",
+                         "type": "int",
+                         "tableName": "ad_history",
+                         "IsPrimary": false,
+                         "referencedTable": "ads",
+                         "referencedColumn": "id"
+                    },
+                    {
+                         "name": "adId",
+                         "type": "int",
+                         "tableName": "ad_history",
+                         "IsPrimary": false,
+                         "referencedTable": "ads",
+                         "referencedColumn": "id"
+                    }
+               ]
+          }
+     ]
+}
