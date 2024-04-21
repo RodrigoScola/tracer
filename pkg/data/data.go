@@ -14,6 +14,17 @@ type Table struct {
 	Columns []SchemaInfo `json:"columns"`
 }
 
+func (t *Table) GetPrimary() (*SchemaInfo, error) {
+	for i := range t.Columns {
+		if t.Columns[i].IsPrimary {
+			return &t.Columns[i], nil
+		}
+	}
+
+	return nil, errors.New("no column found")
+}
+
+
 func (t *Table) GetConnectingColumn(tableName string) (*SchemaInfo, error) {
 	for _, col := range t.Columns {
 		if col.ReferencedTableName != nil && strings.Compare(*col.ReferencedTableName, tableName) == 0 {

@@ -12,6 +12,8 @@ type GraphNode struct {
 	From  []*GraphNode `json:"from"`
 }
 
+
+
 func (node *GraphNode) HasChild(childNode *GraphNode) *GraphNode {
 	for _, cu := range node.To {
 		if cu == childNode {
@@ -39,7 +41,7 @@ func (node *GraphNode) PrintColumns() {
 		return
 	}
 
-	fmt.Println(">> is connected from:")
+	fmt.Println("\n>> is connected from:")
 	for _, from_node := range node.From {
 		fmt.Printf("\t%s ", from_node.Table.Name)
 
